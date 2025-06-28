@@ -1,13 +1,15 @@
 {
   "productPrices": {
+    "24": 12,
     "25": 14,
     "27": 44,
     "29": 12
   },
   "productDescriptions": {
+    "24": "New red band",
     "25": "a new band",
     "27": "hello",
-    "29": "plops"
+    "29": "The best Plop in the world, this is the master plop and very popular"
   },
   "productPhotos": {}
 }
