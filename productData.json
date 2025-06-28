@@ -1,10 +1,12 @@
 {
   "productPrices": {
+    "0": 12,
     "18": 12,
     "25": 11,
     "27": 55
   },
   "productDescriptions": {
+    "0": "3x .6 kcb 20-15 taper",
     "18": ".7 snipersling",
     "25": "Bands",
     "27": "Pumpmaster"
