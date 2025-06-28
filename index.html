@@ -700,6 +700,27 @@ p {
     width: 100px;
     height: 100px;
   }
+  
+  .product-detail-card {
+    max-width: 95vw;
+    min-width: 260px;
+    max-height: 90vh;
+  }
+  
+  .detail-card-content {
+    padding: 8px 6px 6px 6px;
+  }
+  
+  .detail-buy-button, .detail-stripe-button {
+    font-size: 0.65rem;
+    padding: 5px 6px;
+  }
+  
+  .detail-product-description {
+    font-size: 0.7rem;
+    padding: 0 2px;
+    line-height: 1.4;
+  }
 }
 
 footer {
@@ -877,53 +898,64 @@ footer a:hover {
   transform: translate(-50%, -50%);
   background: rgba(31, 31, 31, 0.98);
   border: 2px solid #00e5ff;
-  border-radius: 16px;
+  border-radius: 12px;
   box-shadow: 0 0 40px rgba(0, 229, 255, 0.7);
   z-index: 4000 !important;
-  min-width: 240px;
-  max-width: 70vw;
+  min-width: 200px;
+  max-width: 85vw;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
   padding: 0;
   animation: fadeIn 0.3s;
+  overflow: auto;
 }
 .detail-card-content {
-  padding: 18px 12px 12px 12px;
+  padding: 12px 8px 8px 8px;
   position: relative;
   text-align: center;
 }
 .detail-product-name {
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   color: #00e5ff;
   font-family: 'Courier New', 'Monaco', 'Terminal', monospace;
   font-weight: bold;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   text-shadow: 0 0 8px #00e5ff;
+  line-height: 1.2;
 }
 .detail-product-description {
   color: #00ff00;
-  font-size: 0.95rem;
-  margin-bottom: 14px;
+  font-size: 0.75rem;
+  margin-bottom: 8px;
   font-family: 'Courier New', 'Monaco', 'Terminal', monospace;
   font-weight: bold;
   text-shadow: 0 0 5px #00ff00;
+  line-height: 1.3;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  max-width: 100%;
+  padding: 0 4px;
 }
 .detail-payment-buttons {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-bottom: 18px;
+  gap: 6px;
+  margin-bottom: 12px;
 }
 .detail-buy-button, .detail-stripe-button {
   background-color: #ff6b35;
   color: #fff;
   border: none;
-  border-radius: 8px;
-  padding: 12px 0;
-  font-size: 1rem;
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-size: 0.7rem;
   font-family: 'Courier New', 'Monaco', 'Terminal', monospace;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s;
-  box-shadow: 0 0 10px #ff6b3555;
+  box-shadow: 0 0 8px #ff6b3555;
+  text-align: center;
 }
 .detail-stripe-button {
   background-color: #6c5ce7;
@@ -937,15 +969,15 @@ footer a:hover {
 }
 .detail-close-button {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 6px;
+  right: 6px;
   background: #ff6b35;
   color: #fff;
   border: none;
   border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  font-size: 1.2rem;
+  width: 24px;
+  height: 24px;
+  font-size: 0.9rem;
   font-weight: bold;
   cursor: pointer;
   transition: background 0.3s;
@@ -1106,10 +1138,33 @@ footer a:hover {
   <div id="addProductModal" class="description-modal" style="display:none;z-index:3000;">
     <div class="description-modal-content">
       <h2>Add New Product</h2>
-      <input type="text" id="newProductName" class="photo-upload-input" placeholder="Product Name">
-      <input type="url" id="newProductImage" class="photo-upload-input" placeholder="Image URL">
-      <input type="number" id="newProductPrice" class="photo-upload-input" placeholder="Price (£)" step="0.01" min="0">
-      <textarea id="newProductDescription" class="description-input" placeholder="Description"></textarea>
+      
+      <div class="product-name-section">
+        <label for="newProductName" class="description-label">📝 Product Name</label>
+        <input type="text" id="newProductName" class="photo-upload-input" placeholder="Enter product name...">
+      </div>
+      
+      <div class="price-section">
+        <label for="newProductPrice" class="price-label">💰 Price (£)</label>
+        <input type="number" id="newProductPrice" class="photo-upload-input" placeholder="0.00" step="0.01" min="0">
+      </div>
+      
+      <div class="description-section">
+        <label for="newProductDescription" class="description-label">📄 Description</label>
+        <textarea id="newProductDescription" class="description-input" placeholder="Enter product description..."></textarea>
+      </div>
+      
+      <div class="photo-upload-section">
+        <label for="newPhotoFileInput" class="photo-upload-label">🖼️ Upload Product Photo (Max 1MB)</label>
+        <input type="file" id="newPhotoFileInput" class="photo-upload-input" accept="image/*" onchange="handleNewPhotoFileUpload(event)">
+        
+        <label for="newPhotoUrlInput" class="photo-upload-label" style="margin-top: 10px;">🔗 Or Use Photo URL (Recommended)</label>
+        <input type="url" id="newPhotoUrlInput" class="photo-upload-input" placeholder="https://example.com/image.jpg" onchange="handleNewPhotoUrlInput()">
+        
+        <img id="newPhotoPreview" class="photo-preview" style="display: none;" alt="Photo Preview">
+        <div id="newUploadStatus" style="margin-top: 5px; font-size: 0.8rem; color: #00e5ff;"></div>
+      </div>
+      
       <div class="modal-buttons">
         <button class="modal-btn save-btn" onclick="addProduct()">➕ Add Product</button>
         <button class="modal-btn cancel-btn" onclick="closeAddProductModal()">❌ Cancel</button>
@@ -2044,6 +2099,72 @@ footer a:hover {
       }
     }
     
+    // Function to handle photo file upload for new product modal
+    function handleNewPhotoFileUpload(event) {
+      const file = event.target.files[0];
+      const photoPreview = document.getElementById('newPhotoPreview');
+      const uploadStatus = document.getElementById('newUploadStatus');
+      
+      if (file) {
+        // Validate file type
+        if (!file.type.startsWith('image/')) {
+          uploadStatus.textContent = '❌ Please select an image file';
+          uploadStatus.style.color = '#ff6b35';
+          return;
+        }
+        
+        // Validate file size (max 5MB)
+        if (file.size > 5 * 1024 * 1024) {
+          uploadStatus.textContent = '❌ File size must be less than 5MB';
+          uploadStatus.style.color = '#ff6b35';
+          return;
+        }
+        
+        // Clear URL input when file is selected
+        document.getElementById('newPhotoUrlInput').value = '';
+        
+        // Create a preview
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          photoPreview.src = e.target.result;
+          photoPreview.style.display = 'block';
+          uploadStatus.textContent = '✅ Photo selected: ' + file.name;
+          uploadStatus.style.color = '#00ff00';
+        };
+        reader.readAsDataURL(file);
+      } else {
+        photoPreview.style.display = 'none';
+        uploadStatus.textContent = '';
+      }
+    }
+    
+    // Function to handle photo URL input for new product modal
+    function handleNewPhotoUrlInput() {
+      const photoUrlInput = document.getElementById('newPhotoUrlInput');
+      const photoPreview = document.getElementById('newPhotoPreview');
+      const uploadStatus = document.getElementById('newUploadStatus');
+      const url = photoUrlInput.value.trim();
+      
+      if (url) {
+        photoPreview.src = url;
+        photoPreview.style.display = 'block';
+        uploadStatus.textContent = '🔗 Photo URL set (recommended method)';
+        uploadStatus.style.color = '#00ff00';
+        
+        // Clear file input when URL is used
+        document.getElementById('newPhotoFileInput').value = '';
+        
+        photoPreview.onerror = function() {
+          uploadStatus.textContent = '❌ Invalid image URL. Please check the URL and try again.';
+          uploadStatus.style.color = '#ff6b35';
+          photoPreview.style.display = 'none';
+        };
+      } else {
+        photoPreview.style.display = 'none';
+        uploadStatus.textContent = '';
+      }
+    }
+    
     // Function to upload photo to GitHub (if needed)
     async function uploadPhotoToGitHub(file, productId) {
       try {
@@ -2085,43 +2206,110 @@ footer a:hover {
     function openAddProductModal() {
       document.getElementById('addProductModal').style.display = 'block';
       document.getElementById('newProductName').value = '';
-      document.getElementById('newProductImage').value = '';
       document.getElementById('newProductPrice').value = '';
       document.getElementById('newProductDescription').value = '';
+      
+      // Clear photo upload fields
+      document.getElementById('newPhotoFileInput').value = '';
+      document.getElementById('newPhotoUrlInput').value = '';
+      document.getElementById('newUploadStatus').textContent = '';
+      
+      // Hide photo preview
+      const photoPreview = document.getElementById('newPhotoPreview');
+      photoPreview.style.display = 'none';
+      
+      // Focus on product name field
+      document.getElementById('newProductName').focus();
     }
 
     function closeAddProductModal() {
       document.getElementById('addProductModal').style.display = 'none';
+      
+      // Clear all fields when closing
+      document.getElementById('newProductName').value = '';
+      document.getElementById('newProductPrice').value = '';
+      document.getElementById('newProductDescription').value = '';
+      document.getElementById('newPhotoFileInput').value = '';
+      document.getElementById('newPhotoUrlInput').value = '';
+      document.getElementById('newUploadStatus').textContent = '';
+      
+      // Hide photo preview
+      const photoPreview = document.getElementById('newPhotoPreview');
+      photoPreview.style.display = 'none';
     }
 
     async function addProduct() {
       const name = document.getElementById('newProductName').value.trim();
-      const image = document.getElementById('newProductImage').value.trim();
       const price = parseFloat(document.getElementById('newProductPrice').value.trim());
       const description = document.getElementById('newProductDescription').value.trim();
-      if (!name || !image || isNaN(price)) {
-        alert('Please enter a name, image URL, and price.');
+      const photoFile = document.getElementById('newPhotoFileInput').files[0];
+      const photoUrl = document.getElementById('newPhotoUrlInput').value.trim();
+      
+      // Validate required fields
+      if (!name || isNaN(price)) {
+        alert('Please enter a product name and price.');
         return;
       }
+      
+      // Ensure we have some form of image
+      if (!photoFile && !photoUrl) {
+        alert('Please provide either a photo file or photo URL.');
+        return;
+      }
+      
       // Find next available productId
       let productId = 0;
       while (document.querySelector(`[data-product-id="${productId}"]`)) productId++;
-      // Save to local objects
+      
+      // Save basic data to local objects
       productPrices[productId] = price;
       if (description) productDescriptions[productId] = description;
-      productPhotos[productId] = image;
-
-      // Save to backend
-      await saveData();
-
+      
+      // Handle photo upload/URL - similar to saveProductDetails
+      let finalPhotoUrl = '';
+      
+      // Priority: URL input > File upload
+      if (photoUrl) {
+        // User provided a URL - use it directly (recommended method)
+        finalPhotoUrl = photoUrl;
+        productPhotos[productId] = finalPhotoUrl;
+        await createProductElement(productId, name, price, description, finalPhotoUrl);
+      } else if (photoFile) {
+        try {
+          // Check file size (limit to 1MB to avoid 413 errors)
+          if (photoFile.size > 1024 * 1024) {
+            alert('Photo is too large. Please use an image smaller than 1MB to avoid server errors.\n\nFor now, photo uploads are limited due to server payload restrictions.\n\nAlternative: Use image URLs from external hosting services.');
+            return;
+          }
+          
+          // Compress and convert file to data URL for storage
+          const compressedDataUrl = await compressImage(photoFile, 0.7, 800);
+          finalPhotoUrl = compressedDataUrl;
+          productPhotos[productId] = finalPhotoUrl;
+          
+          await createProductElement(productId, name, price, description, finalPhotoUrl);
+        } catch (error) {
+          console.error('Error processing photo:', error);
+          alert('Error processing photo. Please try a smaller image or use an image URL instead.');
+          return;
+        }
+      }
+    }
+    
+    // Helper function to create product element in DOM
+    async function createProductElement(productId, name, price, description, imageUrl) {
       // Add to DOM
       const gallery = document.getElementById('gallery');
       const el = document.createElement('div');
       el.className = 'product';
       el.dataset.productId = productId;
+      
+      // Use description as display name if available, otherwise use name
+      const displayName = description || name;
+      
       el.innerHTML = `
-        <img src="${image}" alt="${name}">
-        <p>${description || 'N/A'}</p>
+        <img src="${imageUrl}" alt="${name}">
+        <p>${displayName}</p>
         <p class="product-price" id="price-${productId}" style="display: block;">£${price.toFixed(2)}</p>
         <div class="product-detail-card" id="detail-card-${productId}" style="display: none;">
           <div class="detail-card-content">
@@ -2134,13 +2322,16 @@ footer a:hover {
           </div>
         </div>
       `;
+      
+      // Add click event listener
       el.addEventListener('click', () => {
         if (isManagementMode) {
-          openDescriptionModal(productId, image, name);
+          openDescriptionModal(productId, imageUrl, name);
         } else if (productPrices[productId]) {
           showPaymentOptions(productId, name);
         }
       });
+      
       gallery.appendChild(el);
       
       // Set the purchase card description from the correct source
@@ -2151,8 +2342,30 @@ footer a:hover {
         detailDescription.textContent = displayText;
       }
       
-      closeAddProductModal();
-      updateDescriptionStats();
+      // Add visual indication if description exists
+      if (productDescriptions[productId] && productDescriptions[productId].trim()) {
+        el.classList.add('has-description');
+      }
+      
+      // Add price indication
+      if (productPrices[productId]) {
+        el.classList.add('has-price');
+      }
+      
+      // Save to backend
+      try {
+        await saveData();
+        console.log('New product added and saved successfully');
+        
+        // Update stats and close modal
+        updateDescriptionStats();
+        closeAddProductModal();
+        
+        alert(`✅ Product "${name}" added successfully!`);
+      } catch (error) {
+        console.error('Error saving new product:', error);
+        alert('Product was created but failed to save. Please try refreshing the page.');
+      }
     }
     
     function exportData() {
