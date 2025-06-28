@@ -25,7 +25,9 @@
     "27": 12,
     "28": 12,
     "29": 65,
-    "30": 21.99
+    "30": 21.99,
+    "31": 18,
+    "32": 16
   },
   "productDescriptions": {
     "0": "3x .6 kcb 20-15 taper",
@@ -58,13 +60,17 @@
     "27": "3x .8 kcb 25/20 taper",
     "28": "3x .8 sniper sling 25/20 taper",
     "29": "Comes fitted with tubes",
-    "30": "25/20 taper"
+    "30": "25/20 taper",
+    "31": "2 meter roll",
+    "32": "2 meter roll"
   },
   "productPhotos": {
     "14": "https://ik.imagekit.io/4nyfekbh0/IMG_3831.jpeg?updatedAt=1751015138169",
     "15": "https://ik.imagekit.io/4nyfekbh0/IMG_3829.jpeg?updatedAt=1751015299940",
     "16": "https://ik.imagekit.io/4nyfekbh0/IMG_3825.jpeg?updatedAt=1751015641614",
     "29": "https://ik.imagekit.io/4nyfekbh0/IMG_3826.jpeg?updatedAt=1751015643631",
-    "30": "https://ik.imagekit.io/4nyfekbh0/IMG_3930.jpeg?updatedAt=1751015902408"
+    "30": "https://ik.imagekit.io/4nyfekbh0/IMG_3930.jpeg?updatedAt=1751015902408",
+    "31": "https://ik.imagekit.io/4nyfekbh0/IMG_3934.jpeg?updatedAt=1751017099102",
+    "32": "https://ik.imagekit.io/4nyfekbh0/IMG_3932.jpeg?updatedAt=1751016252513"
   }
 }
