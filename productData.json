@@ -2,6 +2,7 @@
   "productPrices": {
     "0": 12,
     "1": 12,
+    "4": 25,
     "21": 22
   },
   "productDescriptions": {
@@ -9,6 +10,7 @@
     "1": "3x .8 red shot 25/20",
     "2": "3x .9 kcb 25/20 taper",
     "3": "3x .85 red shot 25/20 taper",
+    "4": "3m 40/100 tube",
     "21": "BABDS"
   },
   "productPhotos": {}
