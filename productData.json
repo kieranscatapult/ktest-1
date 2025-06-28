@@ -1,9 +1,11 @@
 {
   "productPrices": {
+    "18": 12,
     "25": 11,
     "27": 55
   },
   "productDescriptions": {
+    "18": ".7 snipersling",
     "25": "Bands",
     "27": "Pumpmaster"
   },
