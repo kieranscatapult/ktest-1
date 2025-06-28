@@ -1,9 +1,11 @@
 {
   "productPrices": {
-    "25": 11
+    "25": 11,
+    "27": 55
   },
   "productDescriptions": {
-    "25": "Bands"
+    "25": "Bands",
+    "27": "Pumpmaster"
   },
   "productPhotos": {}
 }
