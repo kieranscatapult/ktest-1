@@ -23,7 +23,8 @@
     "25": 12,
     "26": 12,
     "27": 12,
-    "28": 12
+    "28": 12,
+    "29": 65
   },
   "productDescriptions": {
     "0": "3x .6 kcb 20-15 taper",
@@ -54,11 +55,13 @@
     "25": "3x .8 sheshou 25/20 taper",
     "26": "3x 1mm sheshou 25/20 taper",
     "27": "3x .8 kcb 25/20 taper",
-    "28": "3x .8 sniper sling 25/20 taper"
+    "28": "3x .8 sniper sling 25/20 taper",
+    "29": "Comes fitted with tubes"
   },
   "productPhotos": {
     "14": "https://ik.imagekit.io/4nyfekbh0/IMG_3831.jpeg?updatedAt=1751015138169",
     "15": "https://ik.imagekit.io/4nyfekbh0/IMG_3829.jpeg?updatedAt=1751015299940",
-    "16": "https://ik.imagekit.io/4nyfekbh0/IMG_3825.jpeg?updatedAt=1751015641614"
+    "16": "https://ik.imagekit.io/4nyfekbh0/IMG_3825.jpeg?updatedAt=1751015641614",
+    "29": "https://ik.imagekit.io/4nyfekbh0/IMG_3826.jpeg?updatedAt=1751015643631"
   }
 }
