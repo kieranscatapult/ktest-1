@@ -1,6 +1,7 @@
 {
   "productPrices": {
     "0": 12,
+    "1": 12,
     "18": 12,
     "19": 676,
     "23": 44,
@@ -13,6 +14,7 @@
   },
   "productDescriptions": {
     "0": "3x .6 kcb 20-15 taper",
+    "1": "3x .8 red shot",
     "18": ".7 snipersling",
     "19": "ddccxcxcx",
     "23": "Plops",
