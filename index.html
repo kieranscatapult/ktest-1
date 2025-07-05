@@ -1019,10 +1019,10 @@ footer a:hover {
     </div>
   </div>
   
-  <div class="paypal">
-    <a href="https://www.paypal.com/paypalme/2SQKF9HWFFRWJ" target="_blank">
-      💳 Orders via PayPal 💳
-    </a>
+      <div class="paypal">
+      <a href="https://www.paypal.me/kieranscatapultbandslimited" target="_blank">
+        💳 Orders via PayPal 💳
+      </a>
     <a href="https://www.ebay.co.uk/str/kieranscatapultbandslimited?_tab=feedback" target="_blank">
       ⭐⭐⭐⭐⭐ View eBay Feedback
     </a>
@@ -1875,13 +1875,13 @@ footer a:hover {
     
     // Function to create PayPal payment URL
     function createPayPalPaymentUrl(productName, price, description) {
-      const paypalEmail = 'kieranscatapultbandslimited@gmail.com'; // Your PayPal email
+      const paypalUsername = 'kieranscatapultbandslimited'; // Your PayPal username
       const amount = price.toFixed(2);
       const itemName = encodeURIComponent(productName);
       const itemDescription = encodeURIComponent(description);
       
       // PayPal.me URL format
-      const paypalMeUrl = `https://www.paypal.com/paypalme/2SQKF9HWFFRWJ?amount=${amount}&currency=GBP&note=${itemName}`;
+      const paypalMeUrl = `https://www.paypal.me/${paypalUsername}?amount=${amount}&currency=GBP&note=${itemName}`;
       
       return paypalMeUrl;
     }
